@@ -1,0 +1,1 @@
+INSERT INTO pedido (id, nome_produto, url_imagem, descricao, valor_negociado) VALUES (0, 'Echo Dot', 'https://images-na.ssl-images-amazon.com/images/I/714Rq4k05UL._AC_UL160_SR160,160_.jpg', 'Echo Dot (3ª Geração): Smart Speaker com Alexa - Cor Preta', 331.55)
