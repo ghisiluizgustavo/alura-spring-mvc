@@ -14,7 +14,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomeProduto;
-    private String urlPedido;
+    private String urlProduto;
     private String urlImagem;
     private String descricao;
     private LocalDate dataDaEntrega;
@@ -44,12 +44,12 @@ public class Pedido {
         this.nomeProduto = nomeProduto;
     }
 
-    public String getUrlPedido() {
-        return urlPedido;
+    public String getUrlProduto() {
+        return urlProduto;
     }
 
-    public void setUrlPedido(String urlPedido) {
-        this.urlPedido = urlPedido;
+    public void setUrlProduto(String urlProduto) {
+        this.urlProduto = urlProduto;
     }
 
     public String getUrlImagem() {
