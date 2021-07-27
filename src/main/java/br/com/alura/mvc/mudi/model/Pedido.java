@@ -1,9 +1,6 @@
 package br.com.alura.mvc.mudi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -21,6 +18,25 @@ public class Pedido {
     private String descricao;
     private LocalDate dataDaEntrega;
     private BigDecimal valorNegociado;
+
+    @Enumerated(EnumType.STRING)
+    private StatusPedido statusPedido;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public StatusPedido getStatusPedido() {
+        return statusPedido;
+    }
+
+    public void setStatusPedido(StatusPedido statusPedido) {
+        this.statusPedido = statusPedido;
+    }
 
     public LocalDate getDataDaEntrega() {
         return dataDaEntrega;
