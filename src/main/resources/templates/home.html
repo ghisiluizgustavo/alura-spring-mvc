@@ -12,10 +12,18 @@
 
         <nav class="navbar navbar-expand navbar-light bg-light justify-content-between mb-3 p-3">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="">Todos</a>
-                <a class="nav-item nav-link" href="">Aguardando</a>
-                <a class="nav-item nav-link" href="">Aprovado</a>
-                <a class="nav-item nav-link" href="">Entregue</a>
+                <a th:classappend="${status} == null ? 'active' : ''" class="nav-item nav-link" href="/home">Todos</a>
+                <a th:classappend="${status} == 'aguardando' ? 'active' : ''"
+                   class="nav-item nav-link" href="/home/aguardando">
+                    Aguardando
+                </a>
+                <a th:classappend="${status} == 'aprovado' ? 'active' : ''"
+                   class="nav-item nav-link" href="/home/aprovado">
+                    Aprovado
+                </a>
+                <a th:classappend="${status} == 'entregue' ? 'active' : ''" class="nav-item nav-link" href="/home/entregue">
+                    Entregue
+                </a>
             </div>
             <a class="text-decoration-none" href="pedido/formulario"><button class="btn btn-outline-secondary d-flex my-2 my-sm-0">Novo</button></a>
         </nav>
@@ -32,17 +40,23 @@
                 <div class="row">
                     <div class="col-12 col-sm-8">
                         <div class="row">
-                            <div class="col-md-5">Valor: <span th:text="${pedidos[i].valorNegociado}"></span> </div>
-                            <div class="col-md-7">Data da entrega: <span th:text="${pedidos[i].dataDaEntrega}"></span> </div>
+                            <div class="col-md-5"><b> Valor: </b>
+                                <span th:if="${pedidos[i].valorNegociado != null}"
+                                      th:text="${'R$ ' + #numbers.formatDecimal(pedidos[i].valorNegociado,3,'POINT',2,'COMMA')}">
+                                </span>
+                            </div>
+                            <div class="col-md-7"><b> Data da entrega: </b>
+                                <span th:text="${#temporals.format(pedidos[i].dataDaEntrega, 'dd/MM/yyyy')}"></span>
+                            </div>
                         </div>
 
-                        <div>Produto</div>
-                        <div>
+                        <div class="mt-3">
+                            <b>Produto</b>
                             <input class="form-control" th:value="${pedidos[i].urlProduto}">
                         </div>
 
-                        <div>Descrição</div>
-                        <div>
+                        <div class="mt-3">
+                            <b>Descrição</b>
                             <textarea class="form-control" th:text="${pedidos[i].descricao}"></textarea>
                         </div>
                     </div>

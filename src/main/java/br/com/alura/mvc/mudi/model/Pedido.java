@@ -13,6 +13,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomeProduto;
+    @Column(length = 400)
     private String urlProduto;
     private String urlImagem;
     private String descricao;
